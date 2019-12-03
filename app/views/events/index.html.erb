@@ -1,0 +1,23 @@
+<div class="container mt-5">
+<% flash.each do |message_type, message| %>
+  <div class="alert alert-<%= message_type %>"><%= message %></div>
+<% end %>
+  <div class="list-group">
+    <% if !@events.blank? %>
+      <% @events.each do |event| %>
+        
+        <div class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <%= link_to event.title, event %>
+            <% if current_user %>
+              <small>By <%= event.user.name %></small>
+            <% end %>
+            <small><%= event.date.strftime("%A %B %d, %Y") %></small>
+          </div>
+        </div>
+      <%end%>
+    <% else %>
+      Nothing Here
+    <%end%>
+  </div>
+</div>
