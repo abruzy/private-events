@@ -1,0 +1,19 @@
+<div class="text-center">
+  <img class="mb-4" src="/docs/4.4/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+  <h1>Sign in</h1>
+  <%= form_tag sessions_path do %>
+    <div class="field">
+      <%= label_tag :email %><br/>
+      <%= text_field_tag :email, params[:email], class:"form-control", id:'inputEmail', placeholder:'email'%>
+    </div>
+    <br>
+    <br>
+    <div class="actions">
+      <%= submit_tag "Login", class:'btn btn-lg btn-primary btn-block' %>
+    </div>
+  <% end %>
+  <br>
+  <div class="info">
+    <p>Don't have an account? Please sign up here <%= link_to "Sign up", sign_up_path %></p>
+  </div>
+</div>
