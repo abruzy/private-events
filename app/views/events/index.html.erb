@@ -12,7 +12,7 @@
             <% if current_user %>
               <small>By <%= event.user.name %></small>
             <% end %>
-            <small><%= event.date.strftime("%A %B %d, %Y") %></small>
+            <small>Event Date: <%= event.date.strftime("%A %B %d, %Y") %></small>
           </div>
         </div>
       <%end%>

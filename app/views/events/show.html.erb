@@ -1,8 +1,11 @@
 <div class="container mt-5">
   <div class="card">
   <div class="card-body">
-    <h5 class="card-title"><%= @post.title %></h5>
-    <p class="card-text"><%= @post.body %></p>
+    <h5 class="card-title"><%= @event.title %></h5>
+    <p class="card-text"><%= @event.details %></p>
+    <div>
+        <a class="btn btn-primary btn-lg" <%= link_to "Apply" %></a>
+    </div>
   </div>
 </div>
 </div>

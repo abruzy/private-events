@@ -19,7 +19,7 @@ class EventsController < ApplicationController
 
     if @event.save
       flash[:success] = "Your event has created successfully"
-      redirect_to root_path
+      redirect_to event_index_path
     else
       flash[:danger] = 'Invalid post, Please try again!'
       render 'new'
