@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :current_user, only: %i[new create]
+  before_action :require_login, only: %i[new create]
 
   def index
     @events = Event.all
@@ -15,7 +15,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.creator_id = current_user.id
+    @event.user_id = current_user.id
 
     if @event.save
       flash[:success] = "Your event has created successfully"

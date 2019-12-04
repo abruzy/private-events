@@ -11,7 +11,16 @@ module SessionsHelper
   end
 
   def logout
-    session.destroy(:user_id)
+    session.destroy
     @current_user = nil
+  end
+
+  private
+
+  def require_login
+    unless current_user
+      flash[:error] = "You must be logged in to access this section"
+      redirect_to login_url # halts request cycle
+    end
   end
 end
