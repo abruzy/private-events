@@ -11,5 +11,5 @@ class User < ApplicationRecord
   uniqueness: { case_sensitive: false }
 
  
-  has_many :events, class_name: :Event, dependent: :destroy
+  has_many :events, class_name: :Event, dependent: :destroy, foreign_key: :creator_id
 end

@@ -10,7 +10,7 @@
           <div class="d-flex w-100 justify-content-between">
             <%= link_to event.title, event %>
             <% if current_user %>
-              <small>By <%= event.user.name %></small>
+              <small>By <%= event.creator.name %></small>
             <% end %>
             <small>Event Date: <%= event.date.strftime("%A %B %d, %Y") %></small>
           </div>
