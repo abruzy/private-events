@@ -34,6 +34,21 @@ class EventsController < ApplicationController
         render 'show'
       end
   end
+
+  def edit
+    @event = current_user.events.find(params[:id])
+  end
+
+  def update
+    @event = current_user.events.find(params[:id])
+    if @event.update(event_params)
+      flash[:success] = 'Event was successfully updated.'
+      redirect_to @event
+    else
+      flash[:danger] = 'Something went wrong, Please try again!'
+      render :edit
+    end
+  end
   
   private
 

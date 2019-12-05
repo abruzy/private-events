@@ -11,7 +11,7 @@ class Event < ApplicationRecord
   has_many :attendees, -> { distinct }, through: :events_users, source: 'user'
 
   def is_creator
-    if self.creator
+    if self.creator.id
       return true
     end
     false

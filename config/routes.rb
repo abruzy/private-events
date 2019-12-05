@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy', as: 'logout'
   get '/events/new', to: 'events#new', as: 'event_new'
   get '/events', to: 'events#index', as: 'event_index'
+  get '/events/edit/:id', to: 'events#edit', as: 'event_edit'
+  patch '/events/:id', to: 'events#update', as: 'event_update'
   get 'attend/:id' => 'events#attend_event', as: 'attend'
 
 

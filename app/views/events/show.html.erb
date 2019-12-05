@@ -1,12 +1,15 @@
 <div class="container mt-5">
   <div class="card">
   <div class="card-body">
-    <h5 class="card-title"><%= @event.title %></h5>
-    <p class="card-text"><%= @event.details %></p>
+    <h5 class="card-title">Title: <%= @event.title %></h5>
+    <h6 class="card-text">Date: <%= @event.date.strftime("%A %B %d, %Y") %></h6>
+    <p class="card-text">Location: <%= @event.location %></p>
+    <p class="card-text">Details: <%= @event.details %></p>
+    
     <div>
       
-      <% if @event.is_creator %>
-        <a class="btn btn-primary btn-lg" <%= link_to "Edit", attend_path %></a>
+      <% if @event.creator.id == current_user.id %>
+        <a class="btn btn-primary btn-lg" <%= link_to "Edit", event_edit_path %></a>
         <% else %>
         <a class="btn btn-primary btn-lg" <%= link_to "Apply", attend_path %></a>
       <% end %>
