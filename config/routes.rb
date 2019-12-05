@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   root 'homes#index'
-  get '/login', to: 'sessions#new', as: 'login'
   get '/sign-up', to: 'users#new', as: 'sign_up'
+  get '/login', to: 'sessions#new', as: 'login'
   delete '/logout', to: 'sessions#destroy', as: 'logout'
   get '/events/new', to: 'events#new', as: 'event_new'
   get '/events', to: 'events#index', as: 'event_index'
+  get 'attend/:id' => 'events#attend_event', as: 'attend'
 
 
   resources :users, only: [:create, :show]

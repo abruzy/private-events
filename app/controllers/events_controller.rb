@@ -23,6 +23,17 @@ class EventsController < ApplicationController
       render 'new'
     end
   end
+
+  def attend_event
+    @attend_event = current_user.events_users.build(params[:id])
+    if @attend_event.save
+      flash[:success] = "You have successfully applied to this event!"
+      redirect_to event_index_path
+      else
+        flash[:danger] = 'Sorry, Please try again!'
+        render 'show'
+      end
+  end
   
   private
 
