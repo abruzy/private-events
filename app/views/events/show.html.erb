@@ -13,7 +13,10 @@
         <a class="btn btn-primary btn-lg fr" <%= link_to "Attendees", attendees_path %></a>
 
         <% else %>
-        <a class="btn btn-primary btn-lg" <%= link_to "Apply", attend_path %></a>
+        
+        <% unless @event.is_past? %>
+          <a class="btn btn-primary btn-lg" <%= link_to "Apply", attend_path %></a>
+        <% end %>
       <% end %>
     </div>
   </div>

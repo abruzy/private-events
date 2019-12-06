@@ -18,4 +18,10 @@ class Event < ApplicationRecord
 
     false
   end
+
+  def is_past?
+    return true if -> { where('date >=?', Date.today) }
+
+    false
+  end
 end
