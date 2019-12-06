@@ -14,9 +14,9 @@
 
         <% else %>
         
-        <% unless @event.is_past? %>
+        <%# <% unless @event.is_past? %> %>
           <a class="btn btn-primary btn-lg" <%= link_to "Apply", attend_path %></a>
-        <% end %>
+        <%# <% end %> %>
       <% end %>
     </div>
   </div>
