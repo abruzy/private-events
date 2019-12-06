@@ -12,8 +12,8 @@ class User < ApplicationRecord
 
  
   has_many :events, class_name: :Event, dependent: :destroy, foreign_key: :creator_id
-  has_many :events_users
-  has_many :attended_events, -> { distinct }, through: :events_users, source: 'event'
+  has_many :event_users
+  has_many :attended_events, -> { distinct }, through: :event_users, source: 'event'
 
   def has_applied?
     self.events_users ? true : false

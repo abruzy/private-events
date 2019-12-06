@@ -1,0 +1,18 @@
+<div class="container mt-5">
+<h4>List of registerd events</h4>
+  <div class="list-group">
+    <% if !@registed_events.blank? %>
+      <% @registed_events.each_with_index do |event, index| %>
+        <div class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+          <%= index += 1%>.
+            <%= link_to event.title, event%>
+            <small>Event Date: <%= event.date.strftime("%A %B %d, %Y") %></small>
+          </div>
+        </div>
+      <%end%>
+    <% else %>
+      Nothing Here !
+    <%end %>
+  </div>
+</div>

@@ -17,6 +17,18 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   
+  def profile
+    @user = current_user
+  end
+  
+  def registered_events
+    @registed_events = current_user.attended_events
+  end
+  
+  def my_events
+    @events = current_user.events
+  end
+
   private
 
   def user_param

@@ -10,7 +10,7 @@
         <a class="nav-link" <%= link_to "Home", root_path %></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" <%= link_to "Event", event_index_path %></a>
+        <a class="nav-link" <%= link_to "Events", event_index_path %></a>
       </li>
     
     </ul>
@@ -22,6 +22,9 @@
       <ul class="navbar-nav mr-2">
       <li class="nav-item">
         <a class="nav-link" <%= link_to "New Event", event_new_path %></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" <%= link_to "Profile", profile_path %></a>
       </li>
     </ul>
       <a class="btn btn-success" <%= link_to "Log out", logout_path, method: :delete %></a>
