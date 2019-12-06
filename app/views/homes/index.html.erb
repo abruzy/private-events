@@ -7,8 +7,8 @@
 </div>
   <div class="list-group">
   <h4 class="mb-4">Upcomming events</h4>
-    <% if !@events.blank? %>
-      <% @events.each do |event| %>
+    <% if !@upcoming_events.blank? %>
+      <% @upcoming_events.each do |event| %>
         <div class="list-group-item list-group-item-action">
           <div class="d-flex w-100 justify-content-between">
             <%= link_to event.title, event %>

@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
 class EventsController < ApplicationController
   before_action :require_login, only: %i[new create attend_event]
   before_action :find_event, only: %i[edit update attendees]
 
   def index
-    @events = Event.all
+    @past_events = Event.past
+    @upcoming_events = Event.upcoming
   end
 
   def new
@@ -25,8 +28,7 @@ class EventsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @event.update(event_params)
@@ -51,15 +53,14 @@ class EventsController < ApplicationController
     end
   end
 
-  def attendees
-  end
+  def attendees; end
 
   private
 
   def find_event
-   @event = current_user.events.find(params[:id])
+    @event = current_user.events.find(params[:id])
   end
-  
+
   def event_params
     params.require(:event).permit(:title, :details, :date, :location)
   end
