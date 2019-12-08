@@ -19,9 +19,8 @@ module SessionsHelper
   private
 
   def require_login
-    unless current_user
-      flash[:error] = 'You must be logged in to access this section'
-      redirect_to login_url # halts request cycle
-    end
+    return flash[:error] = 'You must be logged in to access this section' if current_user
+
+    redirect_to login_url # halts request cycle
   end
 end
