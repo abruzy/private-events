@@ -16,7 +16,7 @@ class User < ApplicationRecord
   has_many :event_users
   has_many :attended_events, -> { distinct }, through: :event_users, source: 'event'
 
-  def applied?
-    events_users ? true : false
-  end
+  # def applied?
+  #   events_users ? true : false
+  # end
 end

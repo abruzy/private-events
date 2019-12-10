@@ -13,15 +13,4 @@ class Event < ApplicationRecord
   scope :upcoming, -> { where('date >= ?', Date.today) }
   scope :past, -> { where('date < ?', Date.today) }
 
-  def creator?
-    return true if creator.id
-
-    false
-  end
-
-  def past?
-    return true if -> { where('date < ?', Date.today) }
-
-    false
-  end
 end
