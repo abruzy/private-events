@@ -6,6 +6,7 @@ module UsersHelper
     if ids && current_user
       return true if ids.include?(current_user.id)
     end
+    
     false
   end
 end
