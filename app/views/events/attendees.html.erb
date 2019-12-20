@@ -1,0 +1,21 @@
+<div class="container mt-5">
+<h4>List of attendees</h4>
+<% flash.each do |message_type, message| %>
+  <div class="alert alert-<%= message_type %>"><%= message %></div>
+<% end %>
+  <div class="list-group">
+    <% if !@event.blank? %>
+      <% @event.attendees.each_with_index do |attendee, index| %>
+        <div class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+          <%= index += 1%>.
+            <%= attendee.name %>
+            <small> <%= attendee.email %></small>
+          </div>
+        </div>
+      <%end%>
+    <% else %>
+      Nothing Here !
+    <%end %>
+  </div>
+</div>

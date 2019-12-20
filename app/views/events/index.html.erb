@@ -1,0 +1,41 @@
+<div class="container mt-5">
+<% flash.each do |message_type, message| %>
+  <div class="alert alert-<%= message_type %>"><%= message %></div>
+<% end %>
+  <div class="list-group">
+  <h4>List of Upcoming Events</h4>
+    <% if !@upcoming_events.blank? %>
+      <% @upcoming_events.each do |event| %>
+        <div class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <%= link_to event.title, event %>
+            <% if current_user %>
+              <small>By <%= event.creator.name %></small>
+            <% end %>
+            <small>Event Date: <%= event.date.strftime("%A %B %d, %Y") %></small>
+          </div>
+        </div>
+      <%end%>
+    <% else %>
+      Nothing Here
+    <%end%>
+  </div>
+  <div class="list-group mt-4">
+  <h4>Past Events</h4>
+    <% if !@past_events.blank? %>
+      <% @past_events.each do |event| %>
+        <div class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <%= link_to event.title, event %>
+            <% if current_user %>
+              <small>By <%= event.creator.name %></small>
+            <% end %>
+            <small>Event Date: <%= event.date.strftime("%A %B %d, %Y") %></small>
+          </div>
+        </div>
+      <%end%>
+    <% else %>
+      Nothing Here
+    <%end%>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="container mt-5">
+  <div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Title: <%= @event.title %></h5>
+    <h6 class="card-text">Date: <%= @event.date.strftime("%A %B %d, %Y") %></h6>
+    <p class="card-text">Location: <%= @event.location %></p>
+    <p class="card-text">Details: <%= @event.details %></p>
+    
+    <div>
+      
+      <% if creator?(@event) && future?(@event) %>
+        <a class="btn btn-primary btn-lg" <%= link_to "Edit", event_edit_path %></a>
+        <a class="btn btn-primary btn-lg fr" <%= link_to "Attendees", attendees_path %></a>
+
+        <% elsif applied?(@event) || past?(@event)%>
+
+        <% else %>
+          <a class="btn btn-primary btn-lg" <%= link_to "Apply", attend_path %></a>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>
