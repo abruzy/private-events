@@ -27,7 +27,7 @@ class EventTest < ActiveSupport::TestCase
   test 'event should belong to user' do
     @event.save
     user_name = @user.name
-    assert_equal user_name ,@event.user.name
+    assert_equal user_name, @event.creator.name
   end
 
   test 'date must be present' do
